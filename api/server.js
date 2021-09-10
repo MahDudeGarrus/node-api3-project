@@ -1,9 +1,11 @@
 const express = require('express');
 const { logger, validateUserId, validateUser, validatePost } = require('./middleware/middleware.js')
+const usersRouter = require('./users/users-router.js')
 
 const server = express();
 
 server.use(express.json())
+server.use('/api/users', usersRouter);
 
 // global middlewares and the user's router need to be connected here
 
